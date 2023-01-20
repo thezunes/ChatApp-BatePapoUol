@@ -1,0 +1,60 @@
+
+
+body  {
+    min-height: 100vh;
+    width: 375px;
+    background-color: #E5E5E5;
+} 
+
+
+.cabecalho {
+
+background-color: #ffffff;
+display: flex;
+justify-content: space-between;    
+width: 376px;
+height: 80px;
+align-items: center;
+position: fixed;
+
+}
+.chatEnviar{
+
+    display: flex;
+    position: fixed;
+    bottom:0;
+    width: 376px;
+    height:80px;
+    background-color: #ffffff;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 22px;
+}
+
+.chatEnter{
+
+    padding-left: 18px;
+    width: 300px;
+    height:30px;
+
+}
+.logo {
+
+    padding-left: 22px;
+    width: 75px;
+    height: 53px;
+}
+
+.batepapo{
+padding-right:22px;
+Width: 42.19px;
+Height: 30.94px;
+
+}
+
+.icon-enviar{
+
+    width:26px; 
+    height:26px;
+    margin:18px;
+}
