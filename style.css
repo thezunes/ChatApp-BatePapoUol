@@ -1,6 +1,6 @@
 
 
-body  {
+.teste  {
     min-height: 100vh;
     width: 375px;
     background-color: #E5E5E5;
@@ -16,7 +16,7 @@ width: 376px;
 height: 80px;
 align-items: center;
 position: fixed;
-
+top: 0;
 }
 .chatEnviar{
 
