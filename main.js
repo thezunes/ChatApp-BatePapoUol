@@ -1,4 +1,3 @@
-
 let usuarioName="";
 let elementoMensagens=document.querySelector(".chat");
 const usuario =
@@ -6,28 +5,44 @@ const usuario =
     name:usuarioName
 }
 
-function login() {
+loginPrompt();
 
-    alert("chamou login")
-    usuarioName=document.querySelector(".login input").value;
+
+// function login() {
+
+//     alert("chamou login")
+//     usuarioName=document.querySelector(".login input").value;
+//     usuario.name=usuarioName;
+//     // document.querySelector(".login").classList.remove("invisivel");
+//     const promessa = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", usuario);
+//     promessa.then(RespostaCerta);
+//     promessa.catch(RespostaErrada);
+
+// }
+
+
+function loginPrompt(){
+
+    usuarioName = prompt("Por favor, digite o seu usuário")
     usuario.name=usuarioName;
     // document.querySelector(".login").classList.remove("invisivel");
     const promessa = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", usuario);
     promessa.then(RespostaCerta);
     promessa.catch(RespostaErrada);
-
 }
+
+
 
 function RespostaCerta(resposta) {
 	console.log(resposta.data);
     alert("deu certo");
     setInterval(conexao, 5000);
-    document.querySelector(".login").classList.add("invisivel");
-    document.querySelector(".login").classList.remove("visivel");
-    document.querySelector(".corpoChat").classList.remove("invisivel");
-    document.querySelector(".corpoChat").classList.add("visivel");
-    setInterval(exibirMensagensOK,3000);
-    console.log("atualizando")
+    // document.querySelector(".login").classList.add("invisivel");
+    // document.querySelector(".login").classList.remove("visivel");
+    // document.querySelector(".corpoChat").classList.remove("invisivel");
+    // document.querySelector(".corpoChat").classList.add("visivel");
+    // setInterval(exibirMensagensOK,3000);
+    console.log("checando status")
 }
 
 
@@ -62,7 +77,6 @@ function exibirMensagens(){
     const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
     promise.then(exibirMensagensOK);
     promise.catch(exibirMensagensErro);
-    alert("verificando mensagens")
 }
 
 function exibirMensagensOK(resposta){
@@ -81,10 +95,11 @@ function exibirMensagensOK(resposta){
         if((resposta.data[i].type==="message")){
             elementoMensagens.innerHTML+=
             `<div id="${i}" class='mensagem'>
-                <h3><span>(${resposta.data[i].time})</span> <strong>${resposta.data[i].from}</strong> para ${resposta.data[i].to}: ${resposta.data[i].text}</h3>
+                <h3><span>(${resposta.data[i].time})</span> <strong>${resposta.data[i].from}</strong> para<strong> ${resposta.data[i].to}</strong>: ${resposta.data[i].text}</strong></h3>
             </div>`
             elementoMensagem=document.getElementById(`${i}`)
             elementoMensagem.scrollIntoView();
+            console.log(resposta)
         }
         
     }
@@ -96,3 +111,34 @@ function exibirMensagensErro(resposta){
 
     console.log(resposta);
     }
+
+function enviar(){
+
+    let mensagem = document.querySelector("input").value;
+    
+    exibirMensagens();
+
+    const modeloMensagem={
+    from:usuarioName,
+    to: "todos", 
+    text: document.getElementById('enviarmsgchat').value,
+    type: "message" 
+}
+
+    const promessa=axios.post("https://mock-api.driven.com.br/api/v6/uol/messages",modeloMensagem);   
+    promessa.then(enviarCerto);
+    promessa.catch(enviarErro);
+    document.getElementById('enviarmsgchat'
+    ).value="";
+}
+
+
+function enviarCerto(resposta){
+    
+}
+function enviarErro(erro){
+    if(erro.response.status!==200){
+        alert(`Erro ${erro.response.status}`);
+        window.location.reload();
+    }  
+}

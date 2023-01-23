@@ -14,21 +14,6 @@
 
 <div class="teste">
 
-
-    <!-- <div class="login">
-        <img src="/imagens/logo.png" alt="UolLogo">
-            <div class="visivel"> 
-                <div>
-                    <input type="text" placeholder="Digite seu nome" class="">
-                    <button onclick="login()">
-                        <h2>Entrar</h2></button>
-                </div>
-            </div>
-            <!-- <div class="invisivel">
-                <div >
-                    <img class="invisivel" src="/imagens/Spin-1.5s-201px.gif" alt="gif de carregamento">
-                    <h3>Entrando...</h3>
-                </div> -->
     
     <div class="corpoChat">
 
@@ -41,15 +26,16 @@
     </header>
 
     <div class="chat"></div>
+
     
 
     <div class="chatEnviar">
 
-    <input placeholder="Escreva aqui o seu texto" type="text" class="chatEnter"/>
+    <input id="enviarmsgchat" placeholder="Escreva aqui o seu texto" type="text"/>
 
         <div> 
 
-            <ion-icon class="icon-enviar" name="paper-plane-outline"></ion-icon>    
+            <ion-icon class="icon-enviar" name="paper-plane-outline" onclick="enviar()"></ion-icon>    
     
         </div>
 
