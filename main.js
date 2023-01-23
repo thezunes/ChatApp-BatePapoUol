@@ -86,7 +86,7 @@ function exibirMensagensOK(resposta){
     for (let i=0;i<qntMensagens;i++){
         if(resposta.data[i].type==="status"){
             elementoMensagens.innerHTML+=
-            `<div id="${i}" class="mensagem status">
+            `<div data-test="message" id="${i}" class="mensagem status">
                 <h3><span>(${resposta.data[i].time})</span> <strong>${resposta.data[i].from}</strong> ${resposta.data[i].text}</h3>
             </div>`;
             elementoMensagem=document.getElementById(`${i}`)
@@ -94,7 +94,7 @@ function exibirMensagensOK(resposta){
         }
         if((resposta.data[i].type==="message")){
             elementoMensagens.innerHTML+=
-            `<div id="${i}" class='mensagem'>
+            `<div data-test="message" id="${i}" class='mensagem'>
                 <h3><span>(${resposta.data[i].time})</span> <strong>${resposta.data[i].from}</strong> para<strong> ${resposta.data[i].to}</strong>: ${resposta.data[i].text}</strong></h3>
             </div>`
             elementoMensagem=document.getElementById(`${i}`)
