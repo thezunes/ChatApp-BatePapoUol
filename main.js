@@ -19,13 +19,33 @@ function login() {
 
 function RespostaCerta(resposta) {
 	console.log(resposta.data);
-    alert("deu certo")
+    alert("deu certo");
+    setInterval(conexao, 5000);
 }
 
 
 function RespostaErrada(resposta){
-    alert("[ERRO] Digite um nome válido.")
+    alert("[ERRO] Digite um nome válido.");
     window.location.reload();
+}
+
+function conexao(){
+
+const promessa = axios.post("https://mock-api.driven.com.br/api/v6/uol/status",usuario)
+console.log("Verificando")
+promessa.then(statusSucesso);
+promessa.catch(statusFalhou);
+}
+
+function statusSucesso(){
+
+    console.log(`Foi atualizado o status do usurario ${usuario}`);
+}
+
+function statusFalhou(){
+
+    alert("Erro");
+
 }
 
 // function verificar(){
