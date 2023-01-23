@@ -65,13 +65,6 @@ Height: 30.94px;
 }
 
 
-.visivel{
-    display: flex !important;
-}
-.invisivel{
-    display:none !important;
-}
-
 .login{
     position: fixed;
     width: 375px;
@@ -143,4 +136,11 @@ button{
 
 strong{
     font-weight: 710;
+}
+
+
+.chat{
+
+    margin-bottom: 80px; 
+
 }

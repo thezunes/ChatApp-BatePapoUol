@@ -23,7 +23,7 @@ loginPrompt();
 
 function loginPrompt(){
 
-    usuarioName = prompt("Por favor, digite o seu usuário")
+    usuarioName = prompt("Seja bem-vindo(a) ao BatePapo Uol. Por favor, digite o seu nome")
     usuario.name=usuarioName;
     // document.querySelector(".login").classList.remove("invisivel");
     const promessa = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", usuario);
@@ -34,15 +34,15 @@ function loginPrompt(){
 
 
 function RespostaCerta(resposta) {
-	console.log(resposta.data);
-    alert("deu certo");
+
     setInterval(conexao, 5000);
+    setInterval(exibirMensagens, 5000);
+
     // document.querySelector(".login").classList.add("invisivel");
     // document.querySelector(".login").classList.remove("visivel");
     // document.querySelector(".corpoChat").classList.remove("invisivel");
     // document.querySelector(".corpoChat").classList.add("visivel");
-    // setInterval(exibirMensagensOK,3000);
-    console.log("checando status")
+    // setInterval(exibirMensagensOK,3000); Bonus
 }
 
 
@@ -80,6 +80,7 @@ function exibirMensagens(){
 }
 
 function exibirMensagensOK(resposta){
+    console.log(resposta)
     const qntMensagens=resposta.data.length;
     elementoMensagens.innerHTML=``;
     let elementoMensagem;
